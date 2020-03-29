@@ -20,9 +20,8 @@ import java.util.Collections;
  * A class that inherits UserView and allows for custom view
  * functionality
  *
- *
  * @author Javonne
- * */
+ */
 public class BackgroundView extends UserView {
     private Image background;
     private Image background2;
@@ -32,13 +31,11 @@ public class BackgroundView extends UserView {
      * A method that contains basic information such as the world we want to affect
      * and the features (height/ weight) of it
      *
-     *
-     * @param world the world that you wish to manipulate
-     * @param width width of bg image in px
+     * @param world  the world that you wish to manipulate
+     * @param width  width of bg image in px
      * @param height height of bg image in px
-     *
      * @author Javonne
-     * */
+     */
     public BackgroundView(World world, int width, int height) {
         super(world, width, height);
         background = new ImageIcon("data/l1background.png").getImage();

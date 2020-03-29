@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="game.AudioController">
+  <grid id="27dc6" binding="mainPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="35c8d" class="javax.swing.JLabel" binding="volumeLevel">
+        <constraints/>
+        <properties>
+          <text value="Volume:"/>
+        </properties>
+      </component>
+      <component id="ab579" class="javax.swing.JSlider" binding="volumeSlider">
+        <constraints/>
+        <properties>
+          <inverted value="true"/>
+          <maximum value="10"/>
+          <minimum value="1"/>
+          <value value="5"/>
+        </properties>
+      </component>
+      <component id="a5142" class="javax.swing.JButton" binding="muteButton">
+        <constraints/>
+        <properties>
+          <text value="Mute"/>
+        </properties>
+      </component>
+      <component id="cb624" class="javax.swing.JButton" binding="unmuteButton" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="Unmute"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

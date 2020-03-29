@@ -9,31 +9,22 @@ import java.io.IOException;
 // Coin body implemented in levels 1-3, as
 // well as the sound it creates when interacted with
 public class Coin extends StaticBody {
-    private Spitting spitting;
-    private static final Shape btcShape = new PolygonShape(
+    private static final Shape coinShape = new PolygonShape(
             -0.56f,0.5f, -0.564f,-0.498f, 0.564f,-0.5f, 0.56f,0.493f);
-    private static final BodyImage btcImage = new BodyImage("data/heyRed.png");
-    private static SoundClip coinSound;
+    private static final BodyImage coinImage = new BodyImage("data/heyRed.png");
 
 
     public Coin(World world) {
-        super(world, btcShape);
-        addImage(btcImage);
+        super(world, coinShape);
+        addImage(coinImage);
     }
-
-    static {
-        try {
-            coinSound = new SoundClip("data/bite.wav");
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            System.out.println(e);
-        }
-    }
+    
 
     @Override
     public void destroy()
     {
         super.destroy();
-        coinSound.play();
+        Sounds.getCoinSound().play();
     }
 
 

@@ -9,11 +9,19 @@ import java.io.IOException;
 public class HighScoreWriter {
     private String fileName;
 
+    /**
+     *  constructor for HighScoreWriter object
+     *
+     * @param fileName the path to get to the location of the .txt file that score saves go to
+     *
+     * */
     public HighScoreWriter(String fileName) {
         this.fileName = fileName;
     }
 
     /**
+     * call this method to save a players score
+     *
      * @param name name of player who acieved a score
      * @param score score of player
      * */
@@ -30,12 +38,4 @@ public class HighScoreWriter {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        HighScoreWriter hsWriter = new HighScoreWriter("sample.hs");
-        for (int i = 0; i < args.length; i += 2) {
-            String name = args[i];
-            int score = Integer.parseInt(args[i + 1]);
-            hsWriter.writeHighScore(name, score);
-        }
-    }
 }

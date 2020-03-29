@@ -7,13 +7,33 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 // class to enable game saving
-public class GameSaver {
 
+/**
+ * this class enables game state saving
+ *
+ * @author javonne
+ * */
+public class GameSaver {
     private String fileName;
+
+    /**
+     * constructor to create gamesaver object
+     *
+     * @param fileName the path to the .txt file that saves go to
+     * */
     public GameSaver(String fileName){
         this.fileName = fileName;
     }
 
+    /**
+     * call this method to save the full state of the game
+     *
+     * @param gameLevel GameLevel instance that contains all relevant game state information to save a game
+     *
+     * @throws IOException
+     *
+     *
+     * */
     public void saveGame(GameLevel gameLevel) throws IOException {
         boolean append = true;
         FileWriter writer = null;

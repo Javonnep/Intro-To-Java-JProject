@@ -3,11 +3,20 @@ package game;
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
 
+/**
+ * The type Add life collision listener.
+ */
 // collision listener to restore life to character
 public class AddLifeCollisionListener implements CollisionListener {
     private PlayableCharacter playableCharacter;
     private Game game;
 
+    /**
+     * Instantiates a new Add life collision listener.
+     *
+     * @param playableCharacter the playable character
+     * @param game              the game
+     */
     public  AddLifeCollisionListener(PlayableCharacter playableCharacter, Game game){
         this.playableCharacter = playableCharacter;
         this.game = game;

@@ -11,8 +11,7 @@ import java.io.IOException;
  * for character movements
  *
  * @author javonne
- * */
-
+ */
 public class Controller extends KeyAdapter {
     // fields controlling the looks of character movement
     private static final float walkSpeed = 4;
@@ -25,6 +24,13 @@ public class Controller extends KeyAdapter {
     private Game game;
     private Scoreboard scoreboard;
 
+    /**
+     * Instantiates a new Controller.
+     *
+     * @param playableCharacter the playable character
+     * @param gameLevel         the game level
+     * @param game              the game
+     */
     public Controller(PlayableCharacter playableCharacter, GameLevel gameLevel, Game game){
         this.playableCharacter = playableCharacter;
         currentLevel = gameLevel;
@@ -83,6 +89,7 @@ public class Controller extends KeyAdapter {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         }
 
         // the aim of each level is to reach the end whilst minimising deaths,
@@ -99,6 +106,17 @@ public class Controller extends KeyAdapter {
                 game.goToLevel(loadedGame);
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+            if (Game.getLevel() == 1){
+                Sounds.getBgm1().play();
+            }
+
+            if (Game.getLevel() == 2){
+                Sounds.getBgm2().play();
+            }
+
+            if (Game.getLevel() == 3){
+                Sounds.getBgm3().play();
             }
         }
         else if (code == KeyEvent.VK_T){
@@ -125,13 +143,20 @@ public class Controller extends KeyAdapter {
         }
     }
 
+    /**
+     * Set body.
+     *
+     * @param playableCharacter the playable character
+     */
     public void setBody(PlayableCharacter playableCharacter){
         this.playableCharacter = playableCharacter;
     }
 
     /**
      * equivalent to setWorld
-     * */
+     *
+     * @param gameLevel the game level
+     */
     public void setLevel(GameLevel gameLevel){
         this.currentLevel = gameLevel;
 

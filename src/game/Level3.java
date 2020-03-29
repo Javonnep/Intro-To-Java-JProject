@@ -21,6 +21,9 @@ public class Level3 extends GameLevel {
         System.out.println("Level 3 special controls: \n" +
                 "J = super jump");
 
+        Sounds.getBgm3().play();
+
+
         Body platform = null;
 
         // branches
@@ -165,5 +168,11 @@ public class Level3 extends GameLevel {
 
     public int getLevel() {
         return 3;
+    }
+
+    @Override
+    public void stop(){
+        super.stop();
+        Sounds.getBgm3().stop();
     }
 }

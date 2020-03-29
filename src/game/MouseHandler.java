@@ -7,6 +7,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
 
+
 public class MouseHandler extends MouseAdapter {
     private static final BodyImage spitImage = new BodyImage("data/saliva.png");
     private PlayableCharacter playableCharacter;

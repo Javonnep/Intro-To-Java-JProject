@@ -34,6 +34,8 @@ public class Game {
         world = new Level1();
         world.populate(this);
 
+
+
         //make a view / game window
         view = new BackgroundView(world, 640, 480);
 
@@ -59,6 +61,8 @@ public class Game {
         frame.setLocationByPlatform(true);
         // display the world in the window
         frame.add(view);
+        frame.add(new AudioController().getMainPanel(), BorderLayout.NORTH);
+        frame.requestFocus();
         // don't let the game window be resized
         frame.setResizable(false);
         // size the game window to fit the world view
@@ -85,6 +89,10 @@ public class Game {
 
     public static PlayableCharacter getPlayer() {
         return world.getPlayableCharacter();
+    }
+
+    public static void setLevel(int level) {
+        Game.level = level;
     }
 
     public boolean isCurrentLevelCompleted() {
@@ -155,17 +163,9 @@ public class Game {
 
     public void incrementDeathCount(){
         deathcount++;
-        controlPanel1.levelUpdated();
-        System.out.println("idc call");
-        SoundClip deathSound = null;
-        try {
-            deathSound = new SoundClip("data/oof.wav");
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            System.out.println(e);
-        }
-        deathSound.play();
-
+        Sounds.getDeathSound().play();
         Scoreboard scoreboard = new Scoreboard(getPlayer(), this);
+        controlPanel1.levelUpdated();
         System.out.println("Score: " + scoreboard.getScore());
 
     }
@@ -209,6 +209,9 @@ public class Game {
         mouseHandler.setBody(world.getPlayableCharacter());
     }
 
+    public static void setWorld(GameLevel world) {
+        Game.world = world;
+    }
 
     public double getScore() {
         return score;

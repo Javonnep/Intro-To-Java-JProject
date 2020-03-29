@@ -4,15 +4,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
 
 //import static game.Game.decrementDeathCount;
-import static game.Game.getPlayer;
+import static game.Game.*;
+
 
 public class ControlPanel extends JPanel {
     public JButton playButton;
     public JButton pauseButton;
     public JButton quitButton;
     public JPanel mainPanel;
+    private JButton nextLevel;
     public Game game;
     public JPanel testPanel;
     public JButton deathcountButton;
@@ -57,6 +61,24 @@ public class ControlPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 System.exit(0);
+            }
+        });
+        nextLevel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+                if (getLevel() == 1 | getLevel() == 2){
+                    getWorld().stop();
+                    try {
+                        game.goNextLevel();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else {
+                    System.out.println("this is the last level");
+                }
+
             }
         });
     }

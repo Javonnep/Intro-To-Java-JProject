@@ -9,6 +9,8 @@ import java.util.List;
 /**
  * Demonstrates how high-score data can be read from a text
  * file and printed to the terminal.
+ *
+ * @author javonne
  */
 public class HighScoreReader {
 
@@ -16,6 +18,7 @@ public class HighScoreReader {
 
     /**
      * Initialise a new HighScoreReader
+     *
      * @param fileName the name of the high-score file
      */
     public HighScoreReader(String fileName) {
@@ -25,6 +28,10 @@ public class HighScoreReader {
     /**
      * Read the high-score data from the high-score file and print it to
      * the terminal window.
+     *
+     * @throws IOException
+     *
+     * @return List<string>
      */
     public List<String> readScores() throws IOException {
         List<String> scores = new ArrayList<>();
@@ -55,46 +62,11 @@ public class HighScoreReader {
         return scores;
     }
 
-//    public void readScore(int i) throws IOException {
-//        FileReader fr = null;
-//        BufferedReader reader = null;
-//        try {
-//            System.out.println("Reading " + fileName + " data/score.txt");
-//            fr = new FileReader(fileName);
-//            reader = new BufferedReader(fr);
-//            String line = reader.readLine();
-//            int j = -1;
-//            while (line != null && j<=i) {
-//                j++;
-//                if (j == i){
-//                // file is assumed to contain one name, score pair per line
-//                String[] tokens = line.split(",");
-//                String name = tokens[0];
-//                int score = Integer.parseInt(tokens[1]);
-//                System.out.println("Name: " + name + ", Score: " + score);
-//
-//                }
-//                line = reader.readLine();
-//
-////                System.out.println("j:" + j + " i:" + i );
-//
-//            }
-//
-////            System.out.println("...done.");
-//        } finally {
-//            if (reader != null) {
-//                reader.close();
-//            }
-//            if (fr != null) {
-//                fr.close();
-//            }
-//        }
-//    }
-
-
-
     /**
      * returns a sorted array of the five most recent scores
+     *
+     *
+     *
      * */
     public ArrayList<String> recentFiveScores() throws IOException {
         FileReader fr = null;
@@ -130,10 +102,5 @@ public class HighScoreReader {
             }
         }
         return recents;
-    }
-
-    public static void main(String[] args) throws IOException {
-        HighScoreReader demo = new HighScoreReader(args[0]);
-        demo.readScores();
     }
 }

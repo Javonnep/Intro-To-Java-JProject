@@ -19,6 +19,9 @@ public class Level2 extends GameLevel {
                 "Up = Anti gravity mode \n" +
                 "Down = Regular Gravity mode");
 
+        Sounds.getBgm2().play();
+
+
         JFrame debugView = new DebugViewer(this, 700, 700);
 
 
@@ -200,6 +203,11 @@ public class Level2 extends GameLevel {
         return 2;
     }
 
+    @Override
+    public void stop(){
+        super.stop();
+        Sounds.getBgm2().stop();
+    }
 
 }
 

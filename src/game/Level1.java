@@ -15,6 +15,8 @@ public class Level1 extends GameLevel {
         super.populate(game);
         game.setSaveable(true);
 
+        Sounds.getBgm1().loop();
+
 //        JFrame debugView = new DebugViewer(this, 700, 700);
 
         System.out.println("Level " + Game.getLevel() + "!");
@@ -76,6 +78,12 @@ public class Level1 extends GameLevel {
         return level1items;
     }
 
+    @Override
+    public void stop(){
+        super.stop();
+        Sounds.getBgm1().stop();
+    }
+
     // spawn
     public Vec2 startPosition() {
         return new Vec2(0,-11);
@@ -83,7 +91,7 @@ public class Level1 extends GameLevel {
 
     // endpoint
     public Vec2 doorPosition() {
-        return new Vec2(10.8f, 0);
+        return new Vec2(10/*.8f*/, 0);
     }
 
     @Override

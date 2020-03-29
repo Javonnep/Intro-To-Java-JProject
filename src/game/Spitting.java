@@ -4,6 +4,8 @@ import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
 import city.cs.engine.StaticBody;
 
+
+// colliion listener econtaing logic for projectile collisions
 public class Spitting implements CollisionListener {
     private Projectile projectile;
     private PlayableCharacter playableCharacter;
@@ -53,6 +55,16 @@ public class Spitting implements CollisionListener {
 
             collisionEvent.getReportingBody().destroy();
             System.out.println("You cant spit on platforms");
+        }
+
+        else if (collisionEvent.getReportingBody() == projectile && collisionEvent.getOtherBody()
+                instanceof Branch ){
+
+            collisionEvent.getReportingBody().destroy();
+            collisionEvent.getOtherBody().destroy();
+            System.out.println("You destroyed the branch!");
+
+
         }
 
     }
